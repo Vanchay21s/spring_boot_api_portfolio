@@ -7,11 +7,15 @@ spring:
     url: jdbc:postgresql://localhost:5433/springdb
     username: admin
     password: admin123
-    driver-class-name: org.postgresql.Driver
+
+  sql:
+    init:
+      mode: always
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
+    defer-datasource-initialization: true
 
     properties:
       hibernate:
@@ -19,3 +23,11 @@ spring:
         format_sql: true
 
     show-sql: off
+
+# docker run -d --name postgres-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin123 -e POSTGRES_DB=springdb -p 5432:5432 postgres:16
+# navicat:
+#  Host: localhost
+#  Port: 5433
+#  Initial Database: springdb
+#  User Name: admin
+#  Password: admin123
