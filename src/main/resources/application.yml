@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: portfilio
+  datasource:
+    url: jdbc:postgresql://localhost:5433/springdb
+    username: admin
+    password: admin123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+    show-sql: off
