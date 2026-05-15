@@ -24,10 +24,14 @@ spring:
 
     show-sql: off
 
-# docker run -d --name postgres-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin123 -e POSTGRES_DB=springdb -p 5432:5432 postgres:16
+# docker run -d --name postgres-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin123 -e POSTGRES_DB=springdb -p 5433:5432 postgres:16
 # navicat:
 #  Host: localhost
 #  Port: 5433
 #  Initial Database: springdb
 #  User Name: admin
 #  Password: admin123
+
+
+#  Check: docker ps -a
+#  Run Container: docker start postgres-db
