@@ -1,6 +1,7 @@
 package project.portfolio.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import project.portfolio.dto.SkillRequest;
 import project.portfolio.dto.SkillResponse;
@@ -8,6 +9,7 @@ import project.portfolio.model.Skill;
 import project.portfolio.reposity.SkillRepository;
 import project.portfolio.service.SkillService;
 
+import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -75,10 +77,12 @@ public class SkillServiceImpl implements SkillService {
     }
 
     @Override
-    public List<SkillResponse> getAll() {
+    public List<SkillResponse> getAll(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
         List<SkillResponse> skillResponse = new ArrayList<>();
 
-        List<Skill> skill = skillRepository.findAll();
+
+        List<Skill> skill = skillRepository.findAll(pageable);
         if(skill.isEmpty()){
             log.info("not skill found");
             return skillResponse;

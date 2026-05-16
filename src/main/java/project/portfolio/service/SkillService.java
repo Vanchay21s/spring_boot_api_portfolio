@@ -11,5 +11,5 @@ public interface SkillService {
     void update(Long id, SkillRequest skillRequest);
     void delete(Long id);
     SkillResponse getById(Long id);
-    List<SkillResponse> getAll();
+    List<SkillResponse> getAll(int page, int size);
 }
