@@ -3,8 +3,9 @@ package project.portfolio.service.impl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import project.portfolio.dto.SkillRequest;
-import project.portfolio.dto.SkillResponse;
+
+import project.portfolio.dto.skillDTO.SkillRequest;
+import project.portfolio.dto.skillDTO.SkillResponse;
 import project.portfolio.model.Skill;
 import project.portfolio.reposity.SkillRepository;
 import project.portfolio.service.SkillService;
@@ -29,10 +30,10 @@ public class SkillServiceImpl implements SkillService {
     // Step 4
     @Override
     public void create(SkillRequest skillRequest) {
-
         Skill skill = new Skill();
 
         skill.setName(skillRequest.getName());
+        skill.setLogo(skillRequest.getLogo());
         skill.setRating(skillRequest.getRating());
 
         skillRepository.save(skill);
@@ -77,12 +78,12 @@ public class SkillServiceImpl implements SkillService {
     }
 
     @Override
-    public List<SkillResponse> getAll(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    public List<SkillResponse> getAll() {
+        // Pageable pageable = PageRequest.of(page, size);
         List<SkillResponse> skillResponse = new ArrayList<>();
 
 
-        List<Skill> skill = skillRepository.findAll(pageable);
+        List<Skill> skill = skillRepository.findAll();
         if(skill.isEmpty()){
             log.info("not skill found");
             return skillResponse;

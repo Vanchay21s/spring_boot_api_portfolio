@@ -1,17 +1,19 @@
-package project.portfolio.dto;
+package project.portfolio.dto.skillDTO;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.math.BigDecimal;
 
 @Getter
 @Setter
-@ToString
-public class SkillRequest {
+public class SkillResponse {
+
+    @JsonProperty("id")
+    private Long id;
+
     @JsonProperty("name")
     private String name;
 

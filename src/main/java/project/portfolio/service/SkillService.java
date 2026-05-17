@@ -1,9 +1,9 @@
 package project.portfolio.service;
 
-import project.portfolio.dto.SkillRequest;
-import project.portfolio.dto.SkillResponse;
-
 import java.util.List;
+
+import project.portfolio.dto.skillDTO.SkillRequest;
+import project.portfolio.dto.skillDTO.SkillResponse;
 
 public interface SkillService {
 
@@ -11,5 +11,5 @@ public interface SkillService {
     void update(Long id, SkillRequest skillRequest);
     void delete(Long id);
     SkillResponse getById(Long id);
-    List<SkillResponse> getAll(int page, int size);
+    List<SkillResponse> getAll();
 }

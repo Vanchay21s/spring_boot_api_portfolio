@@ -6,8 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import project.portfolio.dto.ApiResponse;
-import project.portfolio.dto.SkillRequest;
-import project.portfolio.dto.SkillResponse;
+import project.portfolio.dto.skillDTO.SkillRequest;
+import project.portfolio.dto.skillDTO.SkillResponse;
 import project.portfolio.service.SkillService;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class SkillController {
     public ResponseEntity<ApiResponse<List<SkillResponse>>> findSkill(@RequestParam(defaultValue = "0") int page,
                                                                       @RequestParam(defaultValue = "10") int size){
         log.info("Find Skill is successfully.");
-        List<SkillResponse> skillResponses = skillService.getAll(page, size);
+        List<SkillResponse> skillResponses = skillService.getAll();
         ApiResponse<List<SkillResponse>> result = new ApiResponse<>(true, "Users fetched successfully", skillResponses);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
@@ -44,8 +44,8 @@ public class SkillController {
     public ResponseEntity<Object> createSkill(@RequestBody SkillRequest skillRequest){
         log.info("creating skill with request: {}", skillRequest);
         skillService.create(skillRequest);
-        log.info("ok");
-        return  ResponseEntity.ok().build();
+        
+        return  ResponseEntity.ok(skillRequest);
     }
 
     @PutMapping("v1/skill/{id}")
