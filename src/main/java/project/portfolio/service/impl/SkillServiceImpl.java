@@ -41,13 +41,11 @@ public class SkillServiceImpl implements SkillService {
 
     @Override
     public void update(Long id, SkillRequest skillRequest) {
-
         Optional<Skill> skill = skillRepository.findById(id);
         if(skill.isEmpty()){
             log.info("Skill with ID: {} not found", id);
             return;
         }
-
         Skill skillUpdate = skill.get();
         skillUpdate.setName(skillRequest.getName());
         skillUpdate.setRating(skillRequest.getRating());

@@ -26,7 +26,10 @@ public class SkillController {
                                                                       @RequestParam(defaultValue = "10") int size){
         log.info("Find Skill is successfully.");
         List<SkillResponse> skillResponses = skillService.getAll();
-        ApiResponse<List<SkillResponse>> result = new ApiResponse<>(true, "Users fetched successfully", skillResponses);
+        ApiResponse<List<SkillResponse>> result = new ApiResponse<>(
+                true,
+                "Users fetched successfully",
+                skillResponses);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
@@ -44,7 +47,6 @@ public class SkillController {
     public ResponseEntity<Object> createSkill(@RequestBody SkillRequest skillRequest){
         log.info("creating skill with request: {}", skillRequest);
         skillService.create(skillRequest);
-        
         return  ResponseEntity.ok(skillRequest);
     }
 
