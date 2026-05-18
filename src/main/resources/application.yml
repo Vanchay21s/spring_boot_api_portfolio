@@ -1,28 +1,39 @@
 server:
   port: 8080
+
 spring:
   application:
-    name: portfilio
-  datasource:
-    url: jdbc:postgresql://localhost:5433/springdb
-    username: admin
+    name: portfolio
+
+  r2dbc:
     password: admin123
-
-  sql:
-    init:
-      mode: always
-
-  jpa:
-    hibernate:
-      ddl-auto: none
-    defer-datasource-initialization: true
-
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: true
-
-    show-sql: off
+    url: r2dbc:postgresql://localhost:5433/springdb
+    username: admin
+#server:
+#  port: 8080
+#spring:
+#  application:
+#    name: portfilio
+#  datasource:
+#    url: jdbc:postgresql://localhost:5433/springdb
+#    username: admin
+#    password: admin123
+#
+#  sql:
+#    init:
+#      mode: always
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+#    defer-datasource-initialization: true
+#
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        format_sql: true
+#
+#    show-sql: off
 
 
 
