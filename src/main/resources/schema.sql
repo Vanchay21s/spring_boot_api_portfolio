@@ -1,5 +1,4 @@
-drop table if exists image_skill;
--- DROP TABLE IF EXISTS skill;
+
 -- 1 profile
 create table if not exists profile(
     id serial primary key,
@@ -8,7 +7,7 @@ create table if not exists profile(
     date_of_birth date,
     email varchar(250) unique,
     phone_number varchar(255),
-    addres varchar(255),
+    address varchar(255),
     about_me text,
     profile varchar(500),
     created_at timestamp default now(),
@@ -23,7 +22,7 @@ create table if not exists skill(
     created_at timestamp default now(),
     updated_at timestamp default now()
 );
--- 3
+-- 3 image_skill
 create table if not exists image_skill(
     id bigserial primary key,
     by_skill bigint not null,

@@ -1,14 +1,14 @@
 package project.portfolio.model;
 
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.relational.core.mapping.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,20 +21,24 @@ public class Profile {
     @Id
     private Long id;
     private String username;
+    @Column("full_name")
     private String fullName;
+    @Column("date_of_birth")
     private LocalDate dateOfBirth;
     private String email;
+    @Column("phone_number")
     private String phoneNumber;
     private String address;
+    @Column("about_me")
     private String aboutMe;
     private String profile;
 
-    @CreationTimestamp
-    @Column(name = "created_at", updatable = false)
+    @CreatedDate
+    @Column("created_at")
     private LocalDateTime createdAt;
 
-    @UpdateTimestamp
-    @Column(name = "updated_at")
+    @LastModifiedDate
+    @Column("updated_at")
     private LocalDateTime updatedAt;
 
 }
