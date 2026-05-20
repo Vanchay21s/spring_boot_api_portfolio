@@ -24,7 +24,7 @@ public class ProfileMapper {
     // Eniity -> DTO
     public ProfileDTO toProfileDTO(Profile profile){
         ProfileDTO dto = new ProfileDTO();
-
+        dto.setId(profile.getId());
         dto.setUsername(profile.getUsername());
         dto.setFullName(profile.getFullName());
         dto.setDateOfBirth(profile.getDateOfBirth());
@@ -35,5 +35,19 @@ public class ProfileMapper {
         dto.setProfile(profile.getProfile());
 
         return dto;
+    }
+    // Update existing entity
+    public void updateProfile(Profile profile,
+                              ProfileDTO profileDTO){
+
+        profile.setId(profileDTO.getId());
+        profile.setUsername(profileDTO.getUsername());
+        profile.setFullName(profileDTO.getFullName());
+        profile.setDateOfBirth(profileDTO.getDateOfBirth());
+        profile.setEmail(profileDTO.getEmail());
+        profile.setPhoneNumber(profileDTO.getPhoneNumber());
+        profile.setAddress(profileDTO.getAddress());
+        profile.setAboutMe(profileDTO.getAboutMe());
+        profile.setProfile(profileDTO.getProfile());
     }
 }

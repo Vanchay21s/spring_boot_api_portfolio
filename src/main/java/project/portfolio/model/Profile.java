@@ -1,6 +1,5 @@
 package project.portfolio.model;
 
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -8,6 +7,7 @@ import org.springframework.data.relational.core.mapping.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.relational.core.mapping.Table;
 
 
 import java.time.LocalDate;
@@ -16,8 +16,9 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
-//@Table("profile")
+@Table("profile")
 public class Profile {
+
     @Id
     private Long id;
     private String username;
